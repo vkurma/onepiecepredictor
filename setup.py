@@ -18,6 +18,12 @@ setup_args = dict(
     author_email='vineel.prince7@gmail.com',
     keywords=['OnePiecePredictor'],
     url='https://github.com/vkurma/OnePiecePredictor',
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires='>=3.6',
 )
 
 install_requires = [
@@ -26,4 +32,9 @@ install_requires = [
     'scikit-learn',
     'xgboost',
     'catboost',
+    'category_encoders',
+    'imblearn',
 ]
+
+if __name__ == '__main__':
+    setup(**setup_args, install_requires=install_requires)

@@ -9,9 +9,9 @@ import sklearn
 from sklearn.metrics import *
 from category_encoders import TargetEncoder
 from sklearn.model_selection import train_test_split
-from .OnePiecePredictor import OnePiecePredictor
+from .OnePiecePredictor2 import OnePiecePredictor2
 
-class OnePieceRegression(OnePiecePredictor):
+class OnePieceRegression(OnePiecePredictor2):
     """
         This class can be used for hyper parameter tuning with cross validation and stratified splitting of data if required.
 

@@ -15,7 +15,7 @@ from imblearn.under_sampling import RandomUnderSampler
 ## Support Undersampling as well.
 ## Return Predictions from train as well.
 ###################################################################################
-class OnePiecePredictor(metaclass=abc.ABCMeta):
+class OnePiecePredictor2(metaclass=abc.ABCMeta):
 
     def __init__(self, X, Y, model, modelParams = {}, testX = None, testY = None,testTrainSplit = None,
                  folds = None, hyperParams = None, scoring = None, performCV = None, targetEncodeCols = None):
