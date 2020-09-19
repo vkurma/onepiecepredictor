@@ -17,7 +17,7 @@ setup_args = dict(
     author='Vineel Kurma',
     author_email='vineel.prince7@gmail.com',
     keywords=['OnePiecePredictor'],
-    url='https://github.com/ncthuc/elastictools',
+    url='https://github.com/vkurma/OnePiecePredictor',
 )
 
 install_requires = [
