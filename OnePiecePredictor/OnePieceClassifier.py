@@ -9,10 +9,10 @@ from sklearn.metrics import *
 from category_encoders import TargetEncoder
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import SMOTE
-from .OnePiecePredictor2 import OnePiecePredictor2
+from onepiecepredictor.OnePiecePredictor2 import OnePiecePredictor3
 from sklearn.model_selection import train_test_split
 
-class OnePieceClassifier(OnePiecePredictor2):
+class OnePieceClassifier(OnePiecePredictor3):
     """
     This class can be used for hyper parameter tuning with cross validation and stratified splitting of data if required.
 

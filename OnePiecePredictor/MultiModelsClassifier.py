@@ -1,6 +1,6 @@
 import abc
-from .MultiModelsPredictor import *
-from .OnePieceClassifier import *
+from onepiecepredictor.MultiModelsPredictor import *
+from onepiecepredictor.OnePieceClassifier import *
 
 class MultiModelsClassifier(MultiModelsPredictor):
     """

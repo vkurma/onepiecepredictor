@@ -7,7 +7,7 @@ with open('HISTORY.md') as history_file:
     HISTORY = history_file.read()
 
 setup_args = dict(
-    name='OnePiecePredictor',
+    name='onepiecepredictor',
     version='0.1',
     description='Hyper Paramter Tuning and Models performance',
     long_description_content_type="text/markdown",
@@ -16,7 +16,7 @@ setup_args = dict(
     packages=find_packages(),
     author='Vineel Kurma',
     author_email='vineel.prince7@gmail.com',
-    keywords=['OnePiecePredictor'],
+    keywords=['onepiecepredictor'],
     url='https://github.com/vkurma/OnePiecePredictor',
     classifiers=[
         "Programming Language :: Python :: 3",

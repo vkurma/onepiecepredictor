@@ -1,7 +1,6 @@
 import abc
-from OnePiecePredictor.MultiModelsPredictor import *
-from .OnePieceRegression import *
-from .MultiModelsPredictor import MultiModelsPredictor
+from onepiecepredictor.OnePieceRegression import *
+from onepiecepredictor.MultiModelsPredictor import MultiModelsPredictor
 
 
 class MultiModelsRegression(MultiModelsPredictor):
