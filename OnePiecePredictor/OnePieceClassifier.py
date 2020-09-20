@@ -14,13 +14,13 @@ from sklearn.model_selection import train_test_split
 
 class OnePieceClassifier(OnePiecePredictor3):
     """
-    This class can be used for hyper parameter tuning with cross validation and stratified splitting of data if required.
+    For hyper parameter tuning with cross validation and stratified splitting of data if required.
 
     X -> array-like(supported by Sklearn). If testTrainSplit is passed, this will be split into train and test
     Y -> array-like(supported by Sklearn). If testTrainSplit is passed, this will be split into train and test
     model -> string Currently supported models: LOGISTIC,RF,SVM,KNN,ADABOOST,XGBOOST,CATBOOST
-    testX -> array-like(supported by Sklearn), test data. Ingnored if testTrainSplit is passed
-    testY -> array-like(supported by Sklearn), test data. Ingnored if testTrainSplit is passed
+    testX -> array-like(supported by Sklearn), test data. Ignored if testTrainSplit is passed
+    testY -> array-like(supported by Sklearn), test data. Ignored if testTrainSplit is passed
     testTrainSplit -> float, ratio passed will be the amount of test data.
     stratify -> bool, used to perform stratified splitting. If passed data will be split based on Y.
     hyperParams -> dictionary, Hyper parameters specific to the model passed. If passed CV is performed.
@@ -35,7 +35,7 @@ class OnePieceClassifier(OnePiecePredictor3):
     multiClass -> Pass true in case of multiclass classification.
     """
     def __init__(self, X, Y, model ,testX = None, testY = None,testTrainSplit = None,
-                stratify = None, hyperParams = None, performCV = None, folds = None,
+                stratify = None, hyperParams = None, performCV = None, folds = 5,
                 applySmote = False, underSample = False, sampling = None,
                 scoring = None,  targetEncodeCols = None, multiClass = False, modelParams = {}):
         self.multiClass = multiClass
@@ -95,12 +95,15 @@ class OnePieceClassifier(OnePiecePredictor3):
         super().test()
 
     def predict(self):
+        """
+        Returns score and predictions.
+        """
         if(self.testY is None):
             return 0, self.test()
 
         preds = self.bestEstimator.predict(self.testX)
         res = getattr(sklearn.metrics, self.scoreToFuncDict[self.scoring])(self.testY, preds)
-        print(self.scoring, res)
+        print(self.model, self.scoring, res)
         return res, preds
 
     def newDataPredict(self, testData):

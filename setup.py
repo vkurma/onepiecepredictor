@@ -8,7 +8,7 @@ with open('HISTORY.md') as history_file:
 
 setup_args = dict(
     name='onepiecepredictor',
-    version='0.1',
+    version='0.3',
     description='Hyper Paramter Tuning and Models performance',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,

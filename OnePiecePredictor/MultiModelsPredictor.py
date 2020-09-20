@@ -4,7 +4,7 @@ import abc
 class MultiModelsPredictor:
 
     def __init__(self, X, Y, testX = None, testY = None,testTrainSplit = None,
-                 folds = None, scoring = None, performCV = None, targetEncodeCols = None):
+                 folds = 5, scoring = None, performCV = None, targetEncodeCols = None):
 
         self.X = X
         self.Y = Y
