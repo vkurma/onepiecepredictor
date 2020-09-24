@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0797276-dc18-48ff-ae61-dc35bc9dbbce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OnePieceClassifier.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OnePieceClassifier.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnePiecePredictor/MultiModelsClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnePiecePredictor/MultiModelsClassifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnePiecePredictor/MultiModelsPredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnePiecePredictor/MultiModelsPredictor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnePiecePredictor/MultiModelsRegression.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnePiecePredictor/MultiModelsRegression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnePiecePredictor/OnePieceClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnePiecePredictor/OnePieceClassifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnePiecePredictor/OnePiecePredictor2.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnePiecePredictor/OnePiecePredictor2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OnePiecePredictor/OnePieceRegression.py" beforeDir="false" afterPath="$PROJECT_DIR$/OnePiecePredictor/OnePieceRegression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OnePiecePredictor.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/OnePiecePredictor.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/onepiecepredictor/MultiModelsClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/onepiecepredictor/MultiModelsClassifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/onepiecepredictor/MultiModelsPredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/onepiecepredictor/MultiModelsPredictor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/onepiecepredictor/MultiModelsRegression.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/onepiecepredictor/MultiModelsRegression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/onepiecepredictor/OnePieceClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/onepiecepredictor/OnePieceClassifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/onepiecepredictor/OnePiecePredictor2.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/onepiecepredictor/OnePiecePredictor2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/onepiecepredictor/OnePieceRegression.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/onepiecepredictor/OnePieceRegression.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

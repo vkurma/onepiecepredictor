@@ -1,17 +1,5 @@
 README.md
 setup.py
-OnePiecePredictor/MultiModelsClassifier.py
-OnePiecePredictor/MultiModelsPredictor.py
-OnePiecePredictor/MultiModelsRegression.py
-OnePiecePredictor/OnePieceClassifier.py
-OnePiecePredictor/OnePiecePredictor2.py
-OnePiecePredictor/OnePieceRegression.py
-OnePiecePredictor/__init__.py
-OnePiecePredictor.egg-info/PKG-INFO
-OnePiecePredictor.egg-info/SOURCES.txt
-OnePiecePredictor.egg-info/dependency_links.txt
-OnePiecePredictor.egg-info/requires.txt
-OnePiecePredictor.egg-info/top_level.txt
 onepiecepredictor/MultiModelsClassifier.py
 onepiecepredictor/MultiModelsPredictor.py
 onepiecepredictor/MultiModelsRegression.py

@@ -1,15 +1,15 @@
 import abc
-from onepiecepredictor.MultiModelsPredictor import *
-from onepiecepredictor.OnePieceClassifier import *
+from onepiecepredictor.MultiModelsPredictor import MultiModelsPredictor
+from onepiecepredictor.OnePieceClassifier import OnePieceClassifier
 
 class MultiModelsClassifier(MultiModelsPredictor):
     """
-        This class can be used for Comparing multiple classification models performace with cross validation and stratified splitting of data if required.
+        For Comparing multiple classification models performance with cross validation and stratified splitting of data if required.
 
         X -> array-like(supported by Sklearn). If testTrainSplit is passed, this will be split into train and test
         Y -> array-like(supported by Sklearn). If testTrainSplit is passed, this will be split into train and test
-        testX -> array-like(supported by Sklearn), test data. Ingnored if testTrainSplit is passed
-        testY -> array-like(supported by Sklearn), test data. Ingnored if testTrainSplit is passed
+        testX -> array-like(supported by Sklearn), test data. Ignored if testTrainSplit is passed
+        testY -> array-like(supported by Sklearn), test data. Ignored if testTrainSplit is passed
         testTrainSplit -> float, ratio passed will be the amount of test data.
         stratify -> bool, used to perform stratified splitting. If passed data will be split based on Y.
         performCV -> bool, Used when hyperParams not passed to perform plain CV.
@@ -23,7 +23,7 @@ class MultiModelsClassifier(MultiModelsPredictor):
     """
 
     def __init__(self, X, Y, testX = None, testY = None,testTrainSplit = None,
-                 folds = None, scoring = None, performCV = None, targetEncodeCols = None,
+                 folds = 5, scoring = None, performCV = None, targetEncodeCols = None,
                  applySmote=False, underSample=False, sampling=None, stratify=None, multiClass = False
                  ):
         self.multiClass = multiClass
@@ -36,8 +36,10 @@ class MultiModelsClassifier(MultiModelsPredictor):
                          )
 
     def predict(self):
-
-        dummyRef = OnePieceClassifier(X = self.X,  Y = self.Y, model = "LOGISTIC", modelParams = {},testTrainSplit = self.testTrainSplit,
+        """
+        Returns dictionary with keys as Models and Values as metric scores.
+        """
+        dummyRef = OnePieceClassifier(X = self.X,  Y = self.Y, model = "LOGISTIC", modelParams = None,testTrainSplit = self.testTrainSplit,
                                     testX = self.testX, testY = self.testY,folds = self.folds, scoring = self.scoring, performCV = self.performCV,
                                     targetEncodeCols = self.targetEncodeCols, applySmote = self.applySmote, underSample = self.underSample,
                                     sampling = self.sampling, stratify = self.stratify, multiClass = self.multiClass)
@@ -50,8 +52,10 @@ class MultiModelsClassifier(MultiModelsPredictor):
         classifiers = ["LOGISTIC","RF","SVM","KNN","ADABOOST","XGBOOST","CATBOOST"]
         resultsDict = {}
         for classifier in classifiers:
-            op = OnePieceClassifier(X = tempX,  Y = tempY, model = classifier, modelParams = {}, testTrainSplit = None,
-                                    testX = tempTestX, testY = tempTestY, folds = self.folds, scoring = self.scoring, performCV = self.performCV)
+            op = OnePieceClassifier(X = tempX,  Y = tempY, model = classifier, modelParams = None, testTrainSplit = None,
+                                    testX = tempTestX, testY = tempTestY, folds = self.folds, scoring = self.scoring, performCV = self.performCV,
+                                    targetEncodeCols = None, applySmote = False, underSample = False,
+                                    sampling = None, stratify = False, multiClass = self.multiClass)
 
             op.fit()
             score, preds = op.predict()
@@ -59,7 +63,7 @@ class MultiModelsClassifier(MultiModelsPredictor):
 
             del op
 
-        print(resultsDict)
+        return resultsDict
 
 
 

@@ -6,4 +6,4 @@ A Small package for hyper paramter tuning pipelining and comparing multiple mode
 
 Its a wrapper around sklearn, xgboost, catboost, imblearn packages.
 
-For examples and documentation, please check Examples and Documentation.ipynb notebook file above.
+For examples and documentation, please check [Refer to this notebook](https://github.com/vkurma/onepiecepredictor/blob/master/Examples%20and%20Documentation.ipynb)

@@ -17,8 +17,11 @@ from imblearn.under_sampling import RandomUnderSampler
 ###################################################################################
 class OnePiecePredictor3(metaclass=abc.ABCMeta):
 
-    def __init__(self, X, Y, model, modelParams = {}, testX = None, testY = None,testTrainSplit = None,
-                 folds = None, hyperParams = None, scoring = None, performCV = None, targetEncodeCols = None):
+    @abc.abstractmethod
+    def __init__(self, X, Y, model, modelParams = None, testX = None, testY = None,testTrainSplit = None,
+                 folds = 5, hyperParams = None, scoring = None, performCV = None, targetEncodeCols = None):
+        if (modelParams is None):
+            modelParams = {}
 
         self.X = X
         self.Y = Y
@@ -40,7 +43,6 @@ class OnePiecePredictor3(metaclass=abc.ABCMeta):
     def getTestTrainSlipt(self):
         pass
 
-
     def fit(self):
         if(self.hyperParams):
             self.__trainWithGridCV()
@@ -50,19 +52,21 @@ class OnePiecePredictor3(metaclass=abc.ABCMeta):
             self.__trainNoCV()
 
     def __trainNoCV(self):
-        self.estimatorModel.fit(self.trainX, self.trainY)
         self.bestEstimator = self.estimatorModel
+        self.bestEstimator.fit(self.trainX, self.trainY)
+
 
     def __trainWithCV(self):
-        stratKfold = StratifiedKFold(n_splits=self.folds)
-        crossValScores = cross_val_score(self.estimatorModel, self.testX, y=list(self.testY), scoring=self.scoring, cv=stratKfold)
-        print("Cross Validation Scores")
+        crossValScores = cross_val_score(self.estimatorModel, self.trainX, y=list(self.trainY), scoring=self.scoring, cv=self.folds)
+        print("Plain Cross Validation Scores")
         print(crossValScores)
         self.bestEstimator = self.estimatorModel
+        self.bestEstimator.fit(self.trainX, self.trainY)
 
     def __trainWithGridCV(self):
         gridSearch = GridSearchCV(self.estimatorModel, self.hyperParams, cv=self.folds, scoring=self.scoring)
         gridSearch.fit(self.trainX, self.trainY)
+        print("Cross Validation Grid Search Scores")
         cvres = gridSearch.cv_results_
         for meanTestScore, params in zip(cvres["mean_test_score"], cvres["params"]):
             print(meanTestScore, params)

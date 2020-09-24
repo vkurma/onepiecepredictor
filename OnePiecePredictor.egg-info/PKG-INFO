@@ -1,17 +1,23 @@
 Metadata-Version: 2.1
 Name: onepiecepredictor
-Version: 0.3
-Summary: Hyper Paramter Tuning and Models performance
-Home-page: https://github.com/vkurma/OnePiecePredictor
+Version: 1.1
+Summary: Hyper Paramter Tuning and Models performance comparison
+Home-page: https://github.com/vkurma/onepiecepredictor
 Author: Vineel Kurma
 Author-email: vineel.prince7@gmail.com
 License: MIT
-Description: # Example Package
+Description: # onepiecepredictor Package
         
-        This is a simple example package. You can use
+        pip install onepiecepredictor
+        
+        A Small package for hyper paramter tuning pipelining and comparing multiple models performance with very little code.
+        
+        Its a wrapper around sklearn, xgboost, catboost, imblearn packages.
+        
+        For examples and documentation, please check Examples and Documentation.ipynb notebook file above.
         
         
-Keywords: onepiecepredictor
+Keywords: onepiecepredictor,hyper parameter tuning
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
