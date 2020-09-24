@@ -16,7 +16,7 @@ setup_args = dict(
     packages=find_packages(),
     author='Vineel Kurma',
     author_email='vineel.prince7@gmail.com',
-    keywords=['onepiecepredictor'],
+    keywords=['onepiecepredictor','hyper parameter tuning'],
     url='https://github.com/vkurma/onepiecepredictor',
     classifiers=[
         "Programming Language :: Python :: 3",
