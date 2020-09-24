@@ -8,8 +8,8 @@ with open('HISTORY.md') as history_file:
 
 setup_args = dict(
     name='onepiecepredictor',
-    version='0.3',
-    description='Hyper Paramter Tuning and Models performance',
+    version='1.1',
+    description='Hyper Paramter Tuning and Models performance comparison',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
@@ -17,7 +17,7 @@ setup_args = dict(
     author='Vineel Kurma',
     author_email='vineel.prince7@gmail.com',
     keywords=['onepiecepredictor'],
-    url='https://github.com/vkurma/OnePiecePredictor',
+    url='https://github.com/vkurma/onepiecepredictor',
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

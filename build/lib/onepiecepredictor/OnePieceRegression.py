@@ -1,3 +1,4 @@
+from onepiecepredictor import *
 from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
 from sklearn.svm import SVR
 from sklearn.neighbors import KNeighborsRegressor
@@ -12,13 +13,13 @@ from onepiecepredictor.OnePiecePredictor2 import OnePiecePredictor3
 
 class OnePieceRegression(OnePiecePredictor3):
     """
-        For hyper parameter tuning with cross validation and stratified splitting of data if required.
+        This class can be used for hyper parameter tuning with cross validation and stratified splitting of data if required.
 
         X -> array-like(supported by Sklearn). If testTrainSplit is passed, this will be split into train and test
         Y -> array-like(supported by Sklearn). If testTrainSplit is passed, this will be split into train and test
         model -> string Currently supported models: LOGISTIC,RF,SVM,KNN,ADABOOST,XGBOOST,CATBOOST
-        testX -> array-like(supported by Sklearn), test data. Ignored if testTrainSplit is passed
-        testY -> array-like(supported by Sklearn), test data. Ignored if testTrainSplit is passed
+        testX -> array-like(supported by Sklearn), test data. Ingnored if testTrainSplit is passed
+        testY -> array-like(supported by Sklearn), test data. Ingnored if testTrainSplit is passed
         testTrainSplit -> float, ratio passed will be the amount of test data.
         hyperParams -> dictionary, Hyper parameters specific to the model passed. If passed CV is performed.
         performCV -> bool, Used when hyperParams not passed to perform plain CV.
@@ -29,14 +30,12 @@ class OnePieceRegression(OnePiecePredictor3):
 
     """
 
-    def __init__(self, X, Y, model, modelParams = None, testX = None, testY = None,testTrainSplit = None,
-                 folds = 5, hyperParams = None,scoring = None, performCV = None, targetEncodeCols = None):
-        if (modelParams is None):
-            modelParams = {}
+    def __init__(self, X, Y, model, modelParams = {}, testX = None, testY = None,testTrainSplit = None,
+                 folds = None, hyperParams = None,scoring = None, performCV = None, targetEncodeCols = None):
         super().__init__(
-            X = X, Y = Y, model=model,modelParams = modelParams,testX=testX, testY=testY, testTrainSplit=testTrainSplit,
-             folds=folds, hyperParams=hyperParams,scoring=scoring, performCV=performCV, targetEncodeCols = targetEncodeCols,
-            )
+            X = X, Y = Y, testX=testX, testY=testY, testTrainSplit=testTrainSplit,
+            model=model, folds=folds, hyperParams=hyperParams,scoring=scoring, performCV=performCV, targetEncodeCols = targetEncodeCols,
+        modelParams = modelParams)
         self.scoreToFuncDict = self.__getScoreToFuncDict()
         if(not self.scoring):
             self.scoring = 'r2'
@@ -68,19 +67,16 @@ class OnePieceRegression(OnePiecePredictor3):
         super().test()
 
     def predict(self):
-        """
-        Returns score and predictions.
-        """
         if (self.testY is None):
             return 0, self.test()
 
         preds = self.bestEstimator.predict(self.testX)
         res = getattr(sklearn.metrics, self.scoreToFuncDict[self.scoring])(self.testY, preds)
-        print(self.model, self.scoring, res)
+        print(res)
         return res, preds
 
     def newDataPredict(self, testData):
-        super().newDataPredict(testData)
+        super().newDataPredict()
 
     def getEstimatorModel(self):
 

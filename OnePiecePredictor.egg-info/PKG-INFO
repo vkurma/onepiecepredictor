@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: onepiecepredictor
+Version: 0.3
+Summary: Hyper Paramter Tuning and Models performance
+Home-page: https://github.com/vkurma/OnePiecePredictor
+Author: Vineel Kurma
+Author-email: vineel.prince7@gmail.com
+License: MIT
+Description: # Example Package
+        
+        This is a simple example package. You can use
+        
+        
+Keywords: onepiecepredictor
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
