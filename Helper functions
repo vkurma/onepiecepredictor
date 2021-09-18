@@ -1,0 +1,16 @@
+def createMiscWithThreshold(col, dataFrame, threshold):
+    
+    cntDict = dict(data[col].value_counts())
+    cntDict = {k: v for k, v in sorted(cntDict.items(), key=lambda item: item[1])}
+    
+    newVal = col+"misc"
+    replaceValues = {}
+    for k, v in cntDict.items():
+        if(v > threshold):
+            break
+        else:
+            replaceValues[k] = newVal
+            
+    dataFrame = dataFrame.replace({col: replaceValues})
+    
+    return dataFrame
